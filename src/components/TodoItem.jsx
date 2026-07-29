@@ -22,14 +22,15 @@ export default function TodoItem(t) {
 
     return (
         <div style={{ paddingTop: "10px", paddingBottom: "10px" }} >
-            <div hidden={!isEdit} >
+            <div hidden={!isEdit}>
                 <input type="checkbox" checked={isCompleted ? true : false } 
-                  onChange={onChangeCheckbox}></input>
+                  onChange={onChangeCheckbox}></input> 
                 <label> {title} </label>
                 <button onClick={()=>onEdit(false) }>Edit</button>
-                <button id="delTodo" disabled={!isCompleted ? true : false}>Delete</button>
+                <button disabled={!isCompleted ? true : false} onClick={() => t.deleteTodo(t.id)}>Delete</button>
             </div>
             <div hidden={isEdit}>
+                <input type="checkbox" checked={isCompleted ? true : false } readOnly ></input> 
                 <input ref={titleRef} type="text" defaultValue={title} ></input>
                 <button disabled={false} onClick={onChangeTitle} >Save</button>
             </div>

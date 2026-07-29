@@ -7,17 +7,14 @@ export default function AddTodo() {
   const { todoList, setTodoList } = useContext(ToDoContext);
 
   const [lastId, setLastId] = useState(todoList[todoList.length-1].id + 1);
-  // useEffect(() => {
-  //   setLastId(prevLastId => prevLastId + 1);
-  // }, []);
-
+  
   function addTodo(e) { 
     e.preventDefault();
     if (addTodoInput.current.value != "") {
       //const lastId = todoList[todoList.length - 1].id + 1;
-       console.log ("lastId ",lastId);
+      // console.log ("lastId ",lastId);
       setLastId(prevLastId => prevLastId + 1);
-       console.log ("after ",lastId);
+      // console.log ("after ",lastId);
       let addData = {
         "userId": 1,
         "id": lastId,
@@ -27,7 +24,7 @@ export default function AddTodo() {
       
       setTodoList((prevTodoList) => [addData, ...todoList]);
       addTodoInput.current.value = "";
-       console.log("addTodo", addData);
+      // console.log("addTodo", addData);
     }
   }
 
