@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import './App.css';
 
 import { initialState } from './data/initialState';
@@ -8,12 +8,13 @@ import {ToDoContext} from './context/TodoContext';
 
 function App() {
   const [todoList, setTodoList] = useState(initialState);
-    
+  
   return (
     <>
       <h1>Create Todo List</h1>
       <ToDoContext.Provider value={{todoList, setTodoList}}>
-        {/* <AddTodo /> */}
+        <AddTodo />
+        <br></br>
         <TodoList />
       </ToDoContext.Provider>
     </>
